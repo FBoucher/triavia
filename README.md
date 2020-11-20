@@ -16,6 +16,15 @@
 
 ![Data Diagram][DataDiagram]
 
+---
+## Tech & Architecture
+
+Everything can still change, however we are starting planning: 
+
+- Backend: Azure Function TypeScript
+- Frontend: Azure Static WebApp - TypeScript - React
+
+
 
 
 [WhiteboardSession]: medias/WhiteBoard.svg
