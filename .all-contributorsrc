@@ -1,0 +1,37 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "fboucher",
+      "name": "Frank Boucher",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2404846?v=4",
+      "profile": "http://cloud5mins.com",
+      "contributions": [
+        "ideas",
+        "code",
+        "video"
+      ]
+    },
+    {
+      "login": "jasonhand",
+      "name": "Jason Hand",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1173344?v=4",
+      "profile": "http://www.jasonhand.com",
+      "contributions": [
+        "ideas",
+        "code",
+        "video"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "triavia",
+  "projectOwner": "FBoucher",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
