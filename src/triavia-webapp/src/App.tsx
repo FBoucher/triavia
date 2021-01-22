@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
-import {QuestionState, Difficulty, fetchTriviaQuestions } from './API';
+import { QuestionState, Difficulty, fetchTriviaQuestions } from './API';
 
 //Components
 import QuestionCard from './components/questionCard';
+
+//Styles
+import { GlobalStyle, Wrapper } from './App.styles';
+
+
 
 const TOTAL_QUESTIONS = 5;
 
@@ -22,14 +27,12 @@ const App = () => {
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(true);
 
-  console.log(questions);
-
   const startGame = async () => {
     setLoading(true);
     setGameOver(false);
 
     const newQuestions = await fetchTriviaQuestions(
-      TOTAL_QUESTIONS, 
+      TOTAL_QUESTIONS,
       Difficulty.EASY
     );
 
@@ -43,17 +46,17 @@ const App = () => {
   };
 
   const checkAnswer = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if(!gameOver){
+    if (!gameOver) {
       const answer = e.currentTarget.value;
       const correct = questions[number].correct_answer === answer;
-      if(correct) 
-        setScore( prev => prev + 1 ); 
+      if (correct)
+        setScore(prev => prev + 1);
 
       const answerObject = {
         question: questions[number].question,
         answer,
         correct,
-        correctAnswer: questions[number].correct_answer,  
+        correctAnswer: questions[number].correct_answer,
       };
       setUserAnswers((prev) => [...prev, answerObject]);
     }
@@ -61,59 +64,54 @@ const App = () => {
 
   const nextQuestion = () => {
     const nextQuestion = number + 1;
-    if (nextQuestion === TOTAL_QUESTIONS){
+    if (nextQuestion === TOTAL_QUESTIONS) {
       setGameOver(true);
     }
-    else{
+    else {
       setNumber(nextQuestion);
     }
   };
 
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>
-          Welcome to Triavia, the trivia game.
-        </h1>
-        <a
-          className="App-link"
-          href="https://docs.microsoft.com/en-us/learn/tv/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Hello world
-        </a>
-        <br/>
-        { gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
-          <button className="start" onClick={startGame}>Start</button>
+    <>
+      <GlobalStyle />
+      <Wrapper>
+        <header className="App-header">
+          <h1>
+            The Triavia
+          </h1>
+
+          <br />
+          {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
+            <button className="start" onClick={startGame}>Start</button>
           ) : null
-        }
-        
-        { !gameOver ? <p className="score">Score: { score }</p>: null }
-        { loading && <p>Calling home...</p>}
+          }
+          {!gameOver ? <p className='score'>Score: {score}</p> : null}
+          {loading && <p>Calling home...</p>}
 
-        { !loading && !gameOver && (
-          <QuestionCard
-            questionNb = {number + 1}
-            totalQuestions = {TOTAL_QUESTIONS}
-            question = {questions[number].question}
-            answers = {questions[number].answers}
-            userAnswer = {userAnswers ? userAnswers[number] : undefined }
-            callback = {checkAnswer}
-          />
-        )}
-        { !gameOver &&
-          !loading &&
-          userAnswers.length === number + 1  &&
-          number !== TOTAL_QUESTIONS - 1 ? (
-            <button className="next" onClick={nextQuestion}>
-              Gimmy more
-            </button>
-          ): null }
+          {!loading && !gameOver && (
+            <QuestionCard
+              questionNb={number + 1}
+              totalQuestions={TOTAL_QUESTIONS}
+              question={questions[number].question}
+              answers={questions[number].answers}
+              userAnswer={userAnswers ? userAnswers[number] : undefined}
+              callback={checkAnswer}
+            />
+          )}
+          {!gameOver &&
+            !loading &&
+            userAnswers.length === number + 1 &&
+            number !== TOTAL_QUESTIONS - 1 ? (
+              <button className="next" onClick={nextQuestion}>
+                Gimmy more
+              </button>
+            ) : null}
 
-      </header>
-    </div>
+        </header>
+      </Wrapper>
+    </>
   );
 };
 
