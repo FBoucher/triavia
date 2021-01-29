@@ -1,5 +1,5 @@
 import { AzureFunction, Context, HttpRequest } from "@azure/functions";
-import { nodeFetch } from 'node-fetch';
+import nodeFetch from 'node-fetch';
 
 
 const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
@@ -11,8 +11,9 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
     if(amount && difficulty)
     {
         const endpoint = `https://opentdb.com/api.php?amount=${amount}&difficulty=${difficulty}&type=multiple`;
-        const response = nodeFetch(endpoint);
+        const response = await nodeFetch(endpoint);
         data = await response.json();
+        console.log("Data ojb is: " + data);
     }
 
     context.log('This HTTP triggered function executed successfully. Pass a amount and difficulty in the query string or in the request body for a personalized response.');
@@ -23,5 +24,6 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
     };
 
 };
+
 
 export default httpTrigger;
