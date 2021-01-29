@@ -6,30 +6,40 @@
 
 ## The **trivia** game for streamer
 
-> Yes, it's spell wrong on purpose ;p
+> Yes, it's spelled wrong on purpose ;p
 
-## Brainstorm session
+This is a game to play with online players while streaming. The goal is to have multiple kinds of game. A lot of this project is done while streaming and you can see all those streams on [BehindMyCloud](https://behindmycloud.com/projects/#triavia) blog.  
+
+## Brainstorm session & Data Diagram
+
+We started by a big brainstorm with the Cloudies and ended up with these notes.
 
 ![Whiteboard Session][WhiteboardSession]
 
-
-## Data Diagram
+From there we thought about some data diagram, the kind of information and interaction we wanted.
 
 ![Data Diagram][DataDiagram]
 
----
-## Tech & Architecture
+### Tech & Architecture
 
-Everything can still change, however we are starting planning: 
+Once the first draft of all that was fetched out it was now easier to think about what kind of technology would help us accomplish this.
+It's still in motion more into the [Discussions tab](https://github.com/FBoucher/triavia/discussions) but here some that were selected:
 
-- Backend: Azure Function TypeScript
-- Frontend: Azure Static WebApp - TypeScript - React
+- [Azure static webapp](https://azure.microsoft.com/services/app-service/static/)
+- [Azure Function](https://azure.microsoft.com/services/functions/)
+- [Node.js](https://nodejs.org/)
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
 
 
+Here what it looks like automatically deployed on Azure on the 2021-01-29
 
+![Look_on_2021-01-29][Look_on_2021-01-29]
 
 [WhiteboardSession]: medias/WhiteBoard.svg
 [DataDiagram]: medias/triavia-data-diagram.png
+[Look_on_2021-01-29]: medias/Look_on_2021-01-29.png
+
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
