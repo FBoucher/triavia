@@ -5,6 +5,7 @@ import { AnswerObject } from '../App';
 import { Wrapper, ButtonWrapper } from './questionCard.styles';
 
 type Props = {
+    category: string;
     question: string;
     answers: string[];
     callback: (e: React.MouseEvent<HTMLButtonElement>) => void;
@@ -14,6 +15,7 @@ type Props = {
 }
 
 const QuestionCard:React.FC<Props> = ({
+    category,
     question,
     answers,
     callback,
@@ -26,7 +28,7 @@ const QuestionCard:React.FC<Props> = ({
         <p className='number'>
             Question: {questionNb} / {totalQuestions}
         </p>
-
+        <h4 className='category'> { category } </h4>
         <p dangerouslySetInnerHTML = {{ __html: question}} ></p>
         <div>
             {answers.map(answer => (

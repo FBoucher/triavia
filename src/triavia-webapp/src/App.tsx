@@ -18,6 +18,11 @@ export type AnswerObject = {
   correctAnswer: string;
 };
 
+export type CategoryObject = {
+  id: string;
+  name: string;
+};
+
 const App = () => {
 
   const [loading, setLoading] = useState(false);
@@ -98,6 +103,7 @@ const App = () => {
               answers={questions[number].answers}
               userAnswer={userAnswers ? userAnswers[number] : undefined}
               callback={checkAnswer}
+              category={questions[number].category}
             />
           )}
           {!gameOver &&

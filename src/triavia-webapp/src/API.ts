@@ -8,8 +8,9 @@ export enum Difficulty {
 
 export const fetchTriviaQuestions = async (amount: number, difficulty: Difficulty) => {
 
-    //const endpoint = `https://opentdb.com/api.php?amount=${amount}&difficulty=${difficulty}&type=multiple`;
-    const endpoint = `https://witty-hill-042ddd70f.azurestaticapps.net/api/GetTriviaQuestions?amount=${amount}&difficulty=${difficulty}&type=multiple`;
+    //const endpoint = `https://opentdb.com/api.php?amount=${amount}&difficulty=${difficulty}&type=boolean`;
+    //const endpoint = `https://witty-hill-042ddd70f.azurestaticapps.net/api/GetTriviaQuestions?amount=${amount}&difficulty=${difficulty}&type=multiple`;
+    const endpoint = `http://localhost:7071/api/GetTriviaQuestions?amount=${amount}&difficulty=${difficulty}&type=boolean`;
     const data = await (await fetch(endpoint)).json();
     return data.results.map((question: Question) => ({
             ...question,
