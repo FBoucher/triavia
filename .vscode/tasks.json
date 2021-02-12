@@ -1,0 +1,24 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "func",
+			"command": "host start --prefix src/triavia-api",
+			"problemMatcher": "$func-node-watch",
+			"isBackground": true,
+			"dependsOn": "AzFunc npm build"
+		},
+		{
+			"type": "shell",
+			"label": "AzFunc npm build",
+			"command": "npm --prefix src/triavia-api run build",
+			"dependsOn": "AzFunc npm install",
+			"problemMatcher": "$tsc"
+		},
+		{
+			"type": "shell",
+			"label": "AzFunc npm install",
+			"command": "npm --prefix src/triavia-api install"
+		}
+	]
+}
