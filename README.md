@@ -25,8 +25,8 @@ From there we thought about some data diagram, the kind of information and inter
 Once the first draft of all that was fetched out it was now easier to think about what kind of technology would help us accomplish this.
 It's still in motion more into the [Discussions tab](https://github.com/FBoucher/triavia/discussions) but here some that were selected:
 
-- [Azure static webapp](https://azure.microsoft.com/services/app-service/static/)
-- [Azure Function](https://azure.microsoft.com/services/functions/)
+- [Azure static webapp](https://azure.microsoft.com/services/app-service/static/?WT.mc_id=dotnet-0000-frbouche)
+- [Azure Function](https://azure.microsoft.com/services/functions/?WT.mc_id=dotnet-0000-frbouche)
 - [Node.js](https://nodejs.org/)
 - [React](https://reactjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
